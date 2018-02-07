@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ProfitPaymentSolution</string>
+
+    <string name="transactions_title">Transactions</string>
+</resources>
