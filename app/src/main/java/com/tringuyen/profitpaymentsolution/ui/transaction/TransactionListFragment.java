@@ -1,4 +1,4 @@
-package com.tringuyen.profitpaymentsolution.ui;
+package com.tringuyen.profitpaymentsolution.ui.transaction;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,10 +8,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.tringuyen.profitpaymentsolution.R;
 import com.tringuyen.profitpaymentsolution.model.Transaction;
+import com.tringuyen.profitpaymentsolution.ui.MainActivity;
 import com.tringuyen.profitpaymentsolution.util.ApiUtils;
 import com.tringuyen.profitpaymentsolution.util.ServerAPI;
 
@@ -27,15 +27,9 @@ public class TransactionListFragment extends Fragment {
     private TransactionListAdapter transactionListAdapter;
     private CompositeDisposable disposable = new CompositeDisposable();
     private ServerAPI mAPI;
-    RecyclerView transactionList;
+    private RecyclerView transactionList;
 
     private ArrayList<TransactionViewModel> transactionViewModels = new ArrayList<>();
-
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
 
     @Nullable
     @Override

@@ -1,14 +1,11 @@
-package com.tringuyen.profitpaymentsolution.ui;
+package com.tringuyen.profitpaymentsolution.ui.transaction;
 
 import android.content.Context;
-import android.databinding.ViewDataBinding;
-import android.view.ViewGroup;
 
 
 import com.tringuyen.profitpaymentsolution.BR;
 import com.tringuyen.profitpaymentsolution.R;
 import com.tringuyen.profitpaymentsolution.util.databinding.RecyclerViewBindingAdapter;
-import com.tringuyen.profitpaymentsolution.util.databinding.RecyclerViewBindingViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;

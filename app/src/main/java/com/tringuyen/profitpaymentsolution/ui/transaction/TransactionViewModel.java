@@ -1,4 +1,4 @@
-package com.tringuyen.profitpaymentsolution.ui;
+package com.tringuyen.profitpaymentsolution.ui.transaction;
 
 import android.databinding.ObservableField;
 

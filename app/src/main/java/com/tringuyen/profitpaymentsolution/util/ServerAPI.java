@@ -1,5 +1,6 @@
 package com.tringuyen.profitpaymentsolution.util;
 
+import com.google.gson.JsonObject;
 import com.tringuyen.profitpaymentsolution.model.Person;
 import com.tringuyen.profitpaymentsolution.model.Transaction;
 import com.tringuyen.profitpaymentsolution.model.TransactionType;
@@ -8,7 +9,8 @@ import com.tringuyen.profitpaymentsolution.model.TransactionType;
 import java.util.List;
 
 import io.reactivex.Observable;
-import io.reactivex.Single;
+import okhttp3.ResponseBody;
+import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -24,7 +26,7 @@ public interface ServerAPI {
     Observable<Transaction> getTransaction(@Path("id") int id);
 
     @POST("transactions")
-    Observable<Transaction> postTransaction(@Body Transaction transaction);
+    Observable<ResponseBody> postTransaction(@Body JsonObject object);
 
     @GET("transaction_types")
     Observable<List<TransactionType>> getTransactionTypes();

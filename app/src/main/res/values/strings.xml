@@ -2,4 +2,10 @@
     <string name="app_name">ProfitPaymentSolution</string>
 
     <string name="transactions_title">Transactions</string>
+    <string name="payment_title">Payment</string>
+
+    <string name="ok_button">OK</string>
+    <string name="name_pay_editText">Name of recipient</string>
+    <string name="phone_pay_editText">Phone number of recipient</string>
+    <string name="amount_pay_editText">Amount</string>
 </resources>
