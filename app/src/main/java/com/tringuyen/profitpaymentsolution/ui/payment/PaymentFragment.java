@@ -25,7 +25,6 @@ import com.tringuyen.profitpaymentsolution.util.ServerAPI;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.reactivestreams.Subscriber;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +35,6 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
-import retrofit2.Response;
 
 public class PaymentFragment extends Fragment {
 
@@ -49,14 +47,12 @@ public class PaymentFragment extends Fragment {
     private CompositeDisposable disposable = new CompositeDisposable();
 
     private ArrayList<PersonViewModel> personViewModels = new ArrayList<>();
-    private RecyclerView personListView;
     private PersonAdapter personAdapter;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.payment_title));
         View v = inflater.inflate(R.layout.fragment_payment, container, false);
 
         nameEditText = v.findViewById(R.id.name_editText);
@@ -74,7 +70,7 @@ public class PaymentFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        personListView = view.findViewById(R.id.person_list);
+        RecyclerView personListView = view.findViewById(R.id.person_list);
         personListView.setLayoutManager(new LinearLayoutManager(getContext()));
         personListView.setAdapter(personAdapter);
     }
@@ -174,7 +170,7 @@ public class PaymentFragment extends Fragment {
                         phoneEditText.setText("");
                         amountEditText.setText("");
 
-                        Toast.makeText(getContext(), "Payment successful", Toast.LENGTH_LONG).show();;
+                        Toast.makeText(getContext(), "Payment successful", Toast.LENGTH_LONG).show();
                     }
                 });
     }

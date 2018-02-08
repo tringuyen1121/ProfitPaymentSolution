@@ -36,11 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
-    }
 
     private void showTransactionListFragment() {
+        getSupportActionBar().setTitle(getResources().getString(R.string.transactions_title));
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (transactionListFragment.isAdded()) {
@@ -56,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showPaymentFragment() {
+
+        getSupportActionBar().setTitle(getResources().getString(R.string.payment_title));
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         if (paymentFragment.isAdded()) {

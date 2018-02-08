@@ -15,7 +15,15 @@
         app:layout_constraintBottom_toTopOf="@+id/pay_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
+        <ImageView
+            android:layout_marginTop="200dp"
+            android:layout_marginBottom="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_credit"/>
+    </FrameLayout>
 
     <Button
         android:id="@+id/pay_button"
@@ -23,6 +31,10 @@
         android:layout_height="wrap_content"
         android:text="Pay"
         android:layout_marginBottom="20dp"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -33,6 +45,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="View"
+        android:textColor="@android:color/white"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         app:layout_constraintBottom_toBottomOf="@+id/pay_button"
         app:layout_constraintEnd_toStartOf="@+id/pay_button"
         app:layout_constraintHorizontal_bias="0.5"

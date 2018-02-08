@@ -27,7 +27,6 @@ public class TransactionListFragment extends Fragment {
     private TransactionListAdapter transactionListAdapter;
     private CompositeDisposable disposable = new CompositeDisposable();
     private ServerAPI mAPI;
-    private RecyclerView transactionList;
 
     private ArrayList<TransactionViewModel> transactionViewModels = new ArrayList<>();
 
@@ -37,7 +36,6 @@ public class TransactionListFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.fragment_transaction_list, container, false);
 
-        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.transactions_title));
         transactionListAdapter = new TransactionListAdapter(getContext(), transactionViewModels);
         mAPI = ApiUtils.getServerAPI();
 
@@ -48,7 +46,7 @@ public class TransactionListFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        transactionList = view.findViewById(R.id.transaction_list);
+        RecyclerView transactionList = view.findViewById(R.id.transaction_list);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
         transactionList.setAdapter(transactionListAdapter);
         transactionList.setLayoutManager(linearLayoutManager);

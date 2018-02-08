@@ -6,7 +6,7 @@ public class PersonViewModel {
 
     private Person person;
 
-    public PersonViewModel(Person person) {
+    PersonViewModel(Person person) {
         this.person = person;
     }
 

@@ -2,15 +2,12 @@ package com.tringuyen.profitpaymentsolution.ui.transaction;
 
 import android.databinding.ObservableField;
 
-import com.tringuyen.profitpaymentsolution.model.Person;
 import com.tringuyen.profitpaymentsolution.model.Transaction;
 import com.tringuyen.profitpaymentsolution.util.ApiUtils;
 import com.tringuyen.profitpaymentsolution.util.ServerAPI;
 
 import java.text.SimpleDateFormat;
 
-import io.reactivex.Observable;
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
@@ -21,7 +18,7 @@ public class TransactionViewModel {
 
     private ServerAPI mAPI;
 
-    public TransactionViewModel(Transaction transaction) {
+    TransactionViewModel(Transaction transaction) {
         this.transaction = transaction;
         mAPI = ApiUtils.getServerAPI();
     }

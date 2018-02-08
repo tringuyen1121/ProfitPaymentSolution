@@ -2,7 +2,6 @@ package com.tringuyen.profitpaymentsolution.ui.transaction;
 
 import android.content.Context;
 
-
 import com.tringuyen.profitpaymentsolution.BR;
 import com.tringuyen.profitpaymentsolution.R;
 import com.tringuyen.profitpaymentsolution.util.databinding.RecyclerViewBindingAdapter;
@@ -14,7 +13,7 @@ public class TransactionListAdapter extends RecyclerViewBindingAdapter<Transacti
 
     private ArrayList<TransactionViewModel> transactionViewModels;
 
-    public TransactionListAdapter(Context context, List<TransactionViewModel> viewModels) {
+    TransactionListAdapter(Context context, List<TransactionViewModel> viewModels) {
         super(context);
         transactionViewModels = new ArrayList<>(viewModels);
     }
@@ -39,7 +38,7 @@ public class TransactionListAdapter extends RecyclerViewBindingAdapter<Transacti
         return transactionViewModels.size();
     }
 
-    public void update(List<TransactionViewModel> transactionViewModels) {
+    void update(List<TransactionViewModel> transactionViewModels) {
         this.transactionViewModels = new ArrayList<>(transactionViewModels);
         notifyDataSetChanged();
     }

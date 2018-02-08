@@ -13,7 +13,7 @@ public class PersonAdapter extends RecyclerViewBindingAdapter<PersonViewModel> {
 
     private ArrayList<PersonViewModel> personViewModels = new ArrayList<>();
 
-    public PersonAdapter(Context context, List<PersonViewModel> vModels) {
+    PersonAdapter(Context context, List<PersonViewModel> vModels) {
         super(context);
         personViewModels = new ArrayList<>(vModels);
     }
@@ -38,7 +38,7 @@ public class PersonAdapter extends RecyclerViewBindingAdapter<PersonViewModel> {
         return personViewModels.size();
     }
 
-    public void update(List<PersonViewModel> persons) {
+    void update(List<PersonViewModel> persons) {
         this.personViewModels = new ArrayList<>(persons);
         notifyDataSetChanged();
     }
