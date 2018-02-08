@@ -1,6 +1,5 @@
 package com.tringuyen.profitpaymentsolution.ui.payment;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,7 +18,6 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.tringuyen.profitpaymentsolution.R;
 import com.tringuyen.profitpaymentsolution.model.Person;
-import com.tringuyen.profitpaymentsolution.ui.MainActivity;
 import com.tringuyen.profitpaymentsolution.util.ApiUtils;
 import com.tringuyen.profitpaymentsolution.util.ServerAPI;
 
@@ -37,6 +35,8 @@ import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
 
 public class PaymentFragment extends Fragment {
+
+    public static final String TAG = PaymentFragment.class.getSimpleName();
 
     private ServerAPI mAPI;
     private Button okButton;
@@ -59,7 +59,13 @@ public class PaymentFragment extends Fragment {
         phoneEditText = v.findViewById(R.id.phone_editText);
         amountEditText = v.findViewById(R.id.amount_editText);
         okButton = v.findViewById(R.id.ok_button);
-        okButton.setOnClickListener(view -> confirmPayment());
+        okButton.setOnClickListener(view -> {
+            if (nameEditText.getText().toString().trim().equals("") ||
+                   phoneEditText.getText().toString().trim().equals("") ||
+                   amountEditText.getText().toString().trim().equals("")) {
+                Toast.makeText(getContext(), "Please fill out all fields", Toast.LENGTH_LONG).show();
+            } else confirmPayment();
+        });
 
         mAPI = ApiUtils.getServerAPI();
         personAdapter = new PersonAdapter(getContext(), personViewModels);
@@ -83,7 +89,12 @@ public class PaymentFragment extends Fragment {
                 mAPI.getPerson()
                         .subscribeOn(Schedulers.io())
                         .observeOn(AndroidSchedulers.mainThread())
-                        .subscribe(this::updatePersonList)
+                        .subscribe(
+                                persons -> updatePersonList(persons),
+                                error -> {
+                                    Log.e(TAG, error.getMessage());
+                                    Toast.makeText(getContext(), "Connection error. Please try again later", Toast.LENGTH_LONG).show();
+                                })
         );
         disposable.add(
                 personAdapter.onItemClicked()
@@ -155,7 +166,7 @@ public class PaymentFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.e("Error", "onError: %" + e.toString());
+                        Toast.makeText(getContext(), "Error, Payment not executed", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
