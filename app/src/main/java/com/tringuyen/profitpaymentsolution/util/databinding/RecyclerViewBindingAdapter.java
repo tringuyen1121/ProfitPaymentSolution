@@ -11,11 +11,6 @@ import android.view.ViewGroup;
 import io.reactivex.Observable;
 import io.reactivex.subjects.PublishSubject;
 
-/**
- * @author A
- * @since 2/7/2018
- */
-
 public abstract class RecyclerViewBindingAdapter<M> extends RecyclerView.Adapter<RecyclerViewBindingViewHolder<M>> {
 
     private Context context;

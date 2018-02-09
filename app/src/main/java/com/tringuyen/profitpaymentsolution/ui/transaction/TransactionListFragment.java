@@ -73,6 +73,12 @@ public class TransactionListFragment extends Fragment {
                                 }));
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        disposable.clear();
+    }
+
     private void populateTransactionListViewModels(List<Transaction> transactions) {
         if (transactions == null) return;
 

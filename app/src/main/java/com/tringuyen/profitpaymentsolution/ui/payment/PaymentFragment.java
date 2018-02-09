@@ -103,6 +103,12 @@ public class PaymentFragment extends Fragment {
         );
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        disposable.clear();
+    }
+
     private void confirmPayment() {
         new AlertDialog.Builder(getContext())
                 .setTitle("Payment Confirm")
