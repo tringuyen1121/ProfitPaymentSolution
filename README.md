@@ -20,7 +20,7 @@ Connect android phone that meet the requirements, make sure USB debugging is ena
 ## Screenshots
 |                  HOME                   |                  Transactions                     |                PAYMENT                  |       
 | ------------------------------------------- |-------------------------------------------|---------------------------------------|
-|![Home](https://imgur.com/f4j9dsE) |  ![Transactions](https://imgur.com/6gg7oKW) | ![Payment](https://imgur.com/6XasGQm)|
+|![Home](https://imgur.com/f4j9dsE.png) |  ![Transactions](https://imgur.com/6gg7oKW.png) | ![Payment](https://imgur.com/6XasGQm.png)|
 
 
 ## Test
